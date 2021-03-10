@@ -1,0 +1,16 @@
+/home/user/Development/Godot Projects/Carambola/.mono/temp/bin/Debug/Carambola.dll
+/home/user/Development/Godot Projects/Carambola/.mono/temp/bin/Debug/Carambola.pdb
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.csprojAssemblyReference.cache
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.AssemblyInfoInputs.cache
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.AssemblyInfo.cs
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.csproj.CoreCompileInputs.cache
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.dll
+/home/user/Development/Godot Projects/Carambola/.mono/temp/obj/Debug/Carambola.pdb
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/bin/Debug/Carambola.dll
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/bin/Debug/Carambola.pdb
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.csprojAssemblyReference.cache
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.AssemblyInfoInputs.cache
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.AssemblyInfo.cs
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.csproj.CoreCompileInputs.cache
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.dll
+/home/user/Development/Misc/mediocre-tools/carambola/.mono/temp/obj/Debug/Carambola.pdb

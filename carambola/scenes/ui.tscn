@@ -1,0 +1,386 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/ui.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
+[ext_resource path="res://assets/icons/file_download.svg" type="Texture" id=3]
+[ext_resource path="res://assets/icons/add_box.svg" type="Texture" id=4]
+[ext_resource path="res://assets/icons/add_circle.svg" type="Texture" id=5]
+[ext_resource path="res://assets/icons/delete.svg" type="Texture" id=6]
+[ext_resource path="res://assets/icons/help_outline-white-18dp.svg" type="Texture" id=7]
+[ext_resource path="res://assets/icons/library_books.svg" type="Texture" id=8]
+[ext_resource path="res://assets/icons/layers.svg" type="Texture" id=9]
+[ext_resource path="res://assets/icons/file_upload.svg" type="Texture" id=10]
+[ext_resource path="res://assets/icons/code.svg" type="Texture" id=11]
+[ext_resource path="res://assets/icons/cake.svg" type="Texture" id=12]
+[ext_resource path="res://assets/icons/build.svg" type="Texture" id=13]
+
+[node name="UI" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menubar" type="Panel" parent="."]
+anchor_right = 1.0
+margin_right = 10000.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="MenuButton" parent="Menubar"]
+margin_right = 68.0
+margin_bottom = 20.0
+text = "Segment"
+items = [ "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Mesh", ExtResource( 12 ), 1, false, true, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Get XML", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false, "Set XML", ExtResource( 2 ), 0, false, true, 6, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objects" type="MenuButton" parent="Menubar"]
+margin_left = 68.0
+margin_right = 130.0
+margin_bottom = 20.0
+focus_mode = 2
+text = "Objects"
+items = [ "Create box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Create obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Templates" type="MenuButton" parent="Menubar"]
+margin_left = 130.0
+margin_right = 209.0
+margin_bottom = 20.0
+focus_mode = 2
+text = "Templates"
+items = [ "Load templates", ExtResource( 9 ), 0, false, true, 0, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="MenuButton" parent="Menubar"]
+margin_left = 209.0
+margin_right = 251.0
+margin_bottom = 20.0
+focus_mode = 2
+text = "Help"
+items = [ "Manual", ExtResource( 8 ), 0, false, true, 0, 0, null, "", false, "About", ExtResource( 7 ), 0, false, false, 1, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 580.0
+margin_right = 1555.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="BottomBar"]
+margin_top = 3.0
+margin_right = 71.0
+margin_bottom = -546.0
+text = "Welcome to Carambola."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="TabContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 794.0
+margin_top = 30.0
+margin_right = 1014.0
+margin_bottom = 570.0
+tab_align = 0
+drag_to_rearrange_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Properties" type="Panel" parent="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="LName" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 109.0
+margin_bottom = 24.0
+text = "<object name>"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LPos" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 45.0
+margin_right = 109.0
+margin_bottom = 59.0
+text = "Position"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos" type="LineEdit" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LSize" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 95.0
+margin_right = 109.0
+margin_bottom = 109.0
+text = "Size"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Size" type="LineEdit" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 110.0
+margin_right = 200.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LType" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 95.0
+margin_right = 109.0
+margin_bottom = 109.0
+text = "Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="LineEdit" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 110.0
+margin_right = 200.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LTemplate" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 145.0
+margin_right = 109.0
+margin_bottom = 159.0
+text = "Template"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Template" type="LineEdit" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 160.0
+margin_right = 200.0
+margin_bottom = 184.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Visible" type="CheckBox" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 195.0
+margin_right = 123.0
+margin_bottom = 219.0
+pressed = true
+text = "Box is visible"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LTile" type="Label" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 230.0
+margin_right = 109.0
+margin_bottom = 244.0
+text = "Tile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" type="LineEdit" parent="Tabs/Properties"]
+margin_left = 10.0
+margin_top = 250.0
+margin_right = 100.0
+margin_bottom = 274.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LColour" type="Label" parent="Tabs/Properties"]
+margin_left = 110.0
+margin_top = 230.0
+margin_right = 209.0
+margin_bottom = 244.0
+text = "Colour"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colour" type="ColorPickerButton" parent="Tabs/Properties"]
+margin_left = 110.0
+margin_top = 250.0
+margin_right = 200.0
+margin_bottom = 274.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seg" type="Panel" parent="Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="LSize" type="Label" parent="Tabs/Seg"]
+margin_left = 10.0
+margin_top = 13.0
+margin_right = 109.0
+margin_bottom = 27.0
+text = "Size"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Size" type="LineEdit" parent="Tabs/Seg"]
+margin_left = 10.0
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+text = "12 10 16"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LTemplate" type="Label" parent="Tabs/Seg"]
+margin_left = 10.0
+margin_top = 65.0
+margin_right = 109.0
+margin_bottom = 79.0
+text = "Template"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Template" type="LineEdit" parent="Tabs/Seg"]
+margin_left = 10.0
+margin_top = 80.0
+margin_right = 200.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objects" type="ItemList" parent="Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+items = [ "Not implemented! :)", ExtResource( 13 ), false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SegFile" type="FileDialog" parent="."]
+margin_left = 12.0
+margin_top = 25.0
+margin_right = 1012.0
+margin_bottom = 575.0
+access = 2
+show_hidden_files = true
+current_dir = "/home/user/Development/Misc/mediocre-tools/carambola"
+current_path = "/home/user/Development/Misc/mediocre-tools/carambola/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SegLoad" type="FileDialog" parent="."]
+margin_left = 12.0
+margin_top = 25.0
+margin_right = 1012.0
+margin_bottom = 575.0
+window_title = "Open a File"
+mode = 0
+access = 2
+show_hidden_files = true
+current_dir = "/home/user/Development/Misc/mediocre-tools/carambola"
+current_path = "/home/user/Development/Misc/mediocre-tools/carambola/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="WindowDialog" parent="."]
+margin_left = 35.0
+margin_top = 52.0
+margin_right = 492.0
+margin_bottom = 242.0
+window_title = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="Label" parent="About"]
+margin_left = 13.0
+margin_top = 17.0
+margin_right = 446.0
+margin_bottom = 167.0
+text = "Carambola Level Editor (version 2021.03.05)
+
+Copyright (C) 2021 Knot126 and other contributours. Please see MIT
+licence.
+
+Carambola is made with the intent that it will be useful, but there is
+ABOSLUTELY NO WARRANTY INCLUDED.
+
+Thanks! (Click outside to make this dissappear.)"
+
+[node name="XML" type="WindowDialog" parent="."]
+margin_left = 165.0
+margin_top = 36.0
+margin_right = 865.0
+margin_bottom = 556.0
+window_title = "Generated XML"
+
+[node name="Output" type="TextEdit" parent="XML"]
+margin_left = 10.0
+margin_top = 40.0
+margin_right = 690.0
+margin_bottom = 510.0
+
+[node name="Label" type="Label" parent="XML"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 532.0
+margin_bottom = 29.0
+text = "This is the XML output of this level. Please copy it into a text file and then save it."
