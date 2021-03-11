@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/edit_bool.gd" type="Script" id=1]
+
+[node name="edit_bool" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="RichTextLabel" parent="."]
+margin_right = 242.0
+margin_bottom = 18.0
+text = "LABEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="CheckBox" parent="."]
+margin_top = 19.0
+margin_right = 190.0
+margin_bottom = 51.0
+text = "(this should be the same as label)"
+__meta__ = {
+"_edit_use_anchors_": false
+}

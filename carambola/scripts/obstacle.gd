@@ -3,6 +3,7 @@ extends Node
 class_name EObstacle
 
 # Sub-components
+const _Properties = ["editor_name", "position", "type", "template", "paramaters"]
 var _box : MeshInstance = null
 var timeSinceLastPhysicsUpdate : float = 0.0
 
@@ -11,6 +12,7 @@ var editor_name : String = "Obstacle" + str(randi() % 1000)
 var position : Vector3 = Vector3()
 var template : String = ""
 var type : String = ""
+var paramaters : String = ""
 
 func _ready():
 	globals.selection = self

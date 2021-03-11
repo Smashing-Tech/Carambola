@@ -42,6 +42,7 @@ func handle_objects_menu(id):
 		
 		$Segment.add_child(newBox)
 		objects.append(newBox)
+		globals.set_active(newBox)
 		
 		gui.log_event("Created 1 box(es).")
 	
@@ -51,6 +52,7 @@ func handle_objects_menu(id):
 		
 		$Segment.add_child(newObs)
 		objects.append(newObs)
+		globals.set_active(newObs)
 		
 		gui.log_event("Created 1 obstacle(s).")
 	

@@ -3,6 +3,7 @@ extends Node
 class_name EBox
 
 # Sub-components
+const _Properties = ["editor_name", "position", "size", "template", "reflection", "visible", "tile", "colour"]
 var _box : MeshInstance = null
 var timeSinceLastPhysicsUpdate : float = 0.0
 
@@ -14,7 +15,7 @@ var template : String = ""
 var reflection : bool = false
 var visible : bool = true
 var tile : int = 0
-var colour : Color = Color(127, 127, 127, 255)
+var colour : Color = Color(0.5, 0.5, 0.5, 1.0)
 
 func _ready():
 	globals.selection = self
@@ -56,6 +57,8 @@ func asXMLElement():
 	s += "size=\"" + str(size.x) + " " + str(size.y) + " " + str(size.z) + "\" "
 	if (template):
 		s += "template=\"" + template + "\" "
+	if (reflection):
+		s += "reflection=\"1\" "
 	if (visible):
 		s += "visible=\"1\" "
 		s += "tile=\"" + str(tile) + "\" "
