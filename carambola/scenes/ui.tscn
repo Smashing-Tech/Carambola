@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/icons/code.svg" type="Texture" id=11]
 [ext_resource path="res://assets/icons/cake.svg" type="Texture" id=12]
 [ext_resource path="res://assets/icons/build.svg" type="Texture" id=13]
+[ext_resource path="res://assets/icons/decal.svg" type="Texture" id=14]
 
 [node name="UI" type="Control"]
 script = ExtResource( 1 )
@@ -29,9 +30,9 @@ __meta__ = {
 }
 
 [node name="File" type="MenuButton" parent="Menubar"]
-margin_right = 68.0
+margin_right = 35.0
 margin_bottom = 20.0
-text = "Segment"
+text = "File"
 items = [ "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Mesh", ExtResource( 12 ), 1, false, true, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Get XML", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false, "Set XML", ExtResource( 2 ), 0, false, true, 6, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
@@ -39,20 +40,20 @@ __meta__ = {
 }
 
 [node name="Objects" type="MenuButton" parent="Menubar"]
-margin_left = 68.0
-margin_right = 130.0
+margin_left = 34.0
+margin_right = 70.0
 margin_bottom = 20.0
 focus_mode = 2
-text = "Objects"
-items = [ "Create box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Create obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false ]
+text = "Edit"
+items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, true, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, true, 11, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Templates" type="MenuButton" parent="Menubar"]
-margin_left = 130.0
-margin_right = 209.0
+margin_left = 70.0
+margin_right = 149.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Templates"
@@ -63,8 +64,8 @@ __meta__ = {
 }
 
 [node name="Help" type="MenuButton" parent="Menubar"]
-margin_left = 209.0
-margin_right = 251.0
+margin_left = 149.0
+margin_right = 191.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Help"

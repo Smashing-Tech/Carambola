@@ -41,6 +41,11 @@ config/icon="res://icon.png"
 
 globals="*res://scripts/global.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 ui_tab={

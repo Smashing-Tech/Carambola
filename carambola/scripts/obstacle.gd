@@ -3,7 +3,7 @@ extends Node
 class_name EObstacle
 
 # Sub-components
-const _Properties = ["editor_name", "position", "type", "template", "paramaters"]
+const _Properties = ["editor_name", "position", "type", "template", "param0", "param1", "param2", "param3", "param4", "param5", "param6"]
 var _box : MeshInstance = null
 var timeSinceLastPhysicsUpdate : float = 0.0
 
@@ -12,7 +12,15 @@ var editor_name : String = "Obstacle" + str(randi() % 1000)
 var position : Vector3 = Vector3()
 var template : String = ""
 var type : String = ""
-var paramaters : String = ""
+
+# Params
+var param0 : String = ""
+var param1 : String = ""
+var param2 : String = ""
+var param3 : String = ""
+var param4 : String = ""
+var param5 : String = ""
+var param6 : String = ""
 
 func _ready():
 	globals.selection = self
@@ -53,6 +61,9 @@ func asXMLElement():
 		s += "type=\"" + type + "\" "
 	if (template):
 		s += "template=\"" + template + "\" "
+	for i in range(0, 4):
+		if (self["param" + str(i)]):
+			s += "param" + str(i) + "=\"" + self["param" + str(i)] + "\" "
 	s += "/>"
 	
 	return s
