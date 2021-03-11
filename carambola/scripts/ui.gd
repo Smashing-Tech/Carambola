@@ -22,6 +22,8 @@ func _ready():
 	if (OS.get_name() == "Android" or OS.get_name() == "HTML5"):
 		$SegFile.access = FileDialog.ACCESS_USERDATA
 		$SegLoad.access = FileDialog.ACCESS_USERDATA
+	
+	$About/About.text = "Carambola Level Editor (version " + globals.app_version[0] + "-" + globals.app_version[1] + "-" + globals.app_version[2] + ")\n\nCopyright (C) 2021 Knot126 and other contributours. Please see MIT \nlicence.\n\nCarambola is made with the intent that it will be useful, but there is \nABOSLUTELY NO WARRANTY INCLUDED.\n\nThanks! (Click outside to make this dissappear.)"
 
 func update():
 	# This is what is done when a selection is changed (eg how the UI should 

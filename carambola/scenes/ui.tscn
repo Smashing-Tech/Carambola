@@ -228,15 +228,6 @@ margin_left = 13.0
 margin_top = 17.0
 margin_right = 446.0
 margin_bottom = 167.0
-text = "Carambola Level Editor (version 2021.03.05)
-
-Copyright (C) 2021 Knot126 and other contributours. Please see MIT
-licence.
-
-Carambola is made with the intent that it will be useful, but there is
-ABOSLUTELY NO WARRANTY INCLUDED.
-
-Thanks! (Click outside to make this dissappear.)"
 
 [node name="XML" type="WindowDialog" parent="."]
 margin_left = 165.0
