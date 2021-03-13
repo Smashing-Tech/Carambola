@@ -19,7 +19,7 @@ func _input(event):
 	last_event = event
 
 func _physics_process(delta):
-	if (globals.selection and not globals.isSceneLock()):
+	if (globals.selection):
 		gui.log_event(globals.selection.asXMLElement())
 	else:
 		pass
@@ -33,36 +33,29 @@ func _physics_process(delta):
 func camera_update(delta):
 	cam.translation.z -= (Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")) * 5.0 * delta
 	if (Input.is_key_pressed(KEY_TAB)):
-		cam.rotation_degrees.z += (Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")) * 20.0 * delta
-
-func handle_objects_menu(id):
-	# Place a box
-	if (id == 0):
-		var newBox = EBox.new()
-		
-		$Segment.add_child(newBox)
-		objects.append(newBox)
-		globals.set_active(newBox)
-		
-		gui.log_event("Created 1 box(es).")
+		cam.rotation_degrees.z += (Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")) * 50.0 * delta
 	
-	# Place an obstacle
-	if (id == 1):
-		var newObs = EObstacle.new()
-		
-		$Segment.add_child(newObs)
-		objects.append(newObs)
-		globals.set_active(newObs)
-		
-		gui.log_event("Created 1 obstacle(s).")
+	# Handle other keys here too
+	if (Input.is_key_pressed(KEY_DELETE)):
+		self.free_object()
 	
-	# Free an object
-	if (id == 3):
-		if (globals.selection):
-			globals.selection.free()
-			globals.selection = null
-		else:
-			gui.log_event("Error: No object has been selected!")
+	if (Input.is_key_pressed(KEY_CONTROL)):
+		if (Input.is_key_pressed(KEY_S)):
+			gui.show_file_select()
+		
+		if (Input.is_key_pressed(KEY_O)):
+			gui.show_load_select()
+		
+		if (Input.is_key_pressed(KEY_SHIFT)):
+			if (Input.is_key_pressed(KEY_B)):
+				self.new_box()
+			
+			if (Input.is_key_pressed(KEY_O)):
+				self.new_obstacle()
+		
+		if (Input.is_key_pressed(KEY_R)):
+			cam.translation = Vector3(0, 1, 4)
+			cam.rotation_degrees = Vector3(0, 0, 0)
 
 func handle_file_menu(id):
 	if (id == 0):
@@ -74,9 +67,29 @@ func handle_file_menu(id):
 	if (id == 5):
 		gui.set_output_and_show(self.segment_to_xml())
 
+func handle_objects_menu(id):
+	# Place a box
+	if (id == 0):
+		self.new_box()
+	
+	# Place an obstacle
+	if (id == 1):
+		self.new_obstacle()
+	
+	# Free an object
+	if (id == 3):
+		self.free_object()
+	
+	if (id == 11):
+		gui.show_options()
+
 func handle_help_menu(id):
 	if (id == 1):
 		gui.show_about()
+
+## ############# ##
+## Serialisation ##
+## ############# ##
 
 # Converts the segment to an XML string with no ending new line
 func segment_to_xml():
@@ -220,8 +233,14 @@ func load_segment(path : String):
 			
 			ent.template = file.get_named_attribute_value_safe("template")
 			ent.type = file.get_named_attribute_value_safe("type")
+			ent.param0 = file.get_named_attribute_value_safe("param0")
+			ent.param1 = file.get_named_attribute_value_safe("param1")
+			ent.param2 = file.get_named_attribute_value_safe("param2")
+			ent.param3 = file.get_named_attribute_value_safe("param3")
+			ent.param4 = file.get_named_attribute_value_safe("param4")
+			ent.param5 = file.get_named_attribute_value_safe("param5")
 			
-			self.add_child(ent)
+			$Segment.add_child(ent)
 			objects.append(ent)
 		
 		else:
@@ -233,3 +252,32 @@ func load_segment(path : String):
 		gui.log_event("Did not load " + str(not_loaded_count) + " incompatible objects.")
 	else:
 		gui.log_event("Loaded segment at \'" + path + "\' successfully.")
+
+## ####################
+## Actually doing stuff
+## ####################
+
+func free_object():
+	if (globals.selection):
+			globals.selection.free()
+			globals.selection = null
+	else:
+		gui.log_event("Error: No object has been selected!")
+
+func new_box():
+	var newBox = EBox.new()
+	
+	$Segment.add_child(newBox)
+	objects.append(newBox)
+	globals.set_active(newBox)
+	
+	gui.log_event("Created 1 box(es).")
+
+func new_obstacle():
+	var newObs = EObstacle.new()
+	
+	$Segment.add_child(newObs)
+	objects.append(newObs)
+	globals.set_active(newObs)
+	
+	gui.log_event("Created 1 obstacle(s).")

@@ -1,11 +1,23 @@
 extends Node
 
-const app_version = ["2021", "03", "11", "Alpha"]
+const app_version = ["2021", "03", "13", "Alpha"]
+var textures = {
+	tiles = [],
+	decals = [],
+	powerups = {"ballfrenzy": null, "slomotion": null, "nitroballs": null},
+}
+
+func _ready():
+	# Load textures
+	for i in range(0, 64):
+		textures.tiles.append(load("res://assets/tiles/" + str(i) + ".png"))
+		textures.tiles[i].set_flags(Texture.FLAGS_DEFAULT)
+
+func get_tile(id : int):
+	return textures.tiles[id % 64]
 
 var selection
 var selectionChanged : bool = false
-var scene_lock : bool = false
-var scene_locker = null
 
 var seg_size : Vector3 = Vector3()
 var seg_template : String = ""
@@ -13,26 +25,3 @@ var seg_template : String = ""
 func set_active(object : Node):
 	self.selection = object
 	self.selectionChanged = true
-
-
-##  ##############  ##
-##  DEPRECATED!!!!  ##
-##  ##############  ##
-
-# Sets a strong lock on the scene
-func setSceneLock(locker):
-	if (!scene_locker):
-		scene_locker = locker
-		scene_lock = true
-
-# Releases the lock on the scene
-func releaseSceneLock(locker):
-	if (locker == scene_locker):
-		scene_lock = false
-		scene_locker = null
-	else:
-		print("Impostor!")
-
-# Gets weather the scene is locked
-func isSceneLock():
-	return scene_lock

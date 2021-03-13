@@ -111,6 +111,10 @@ func show_load_select():
 func show_about():
 	$About.popup_centered()
 
+func show_options():
+	$Options.popup_centered()
+
 func set_output_and_show(output : String):
 	$XML/Output.text = output
 	$XML.popup_centered()
+

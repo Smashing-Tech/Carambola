@@ -37,6 +37,9 @@ func updateThis():
 	
 	var mat = SpatialMaterial.new()
 	mat.albedo_color = colour
+	mat.albedo_texture = globals.get_tile(tile)
+	mat.uv1_triplanar = true
+	mat.flags_world_triplanar = true
 	_box.set_surface_material(0, mat)
 	
 	var _col = ClickableStaticBody.new()

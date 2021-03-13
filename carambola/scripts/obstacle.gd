@@ -32,13 +32,13 @@ func _physics_process(delta):
 		timeSinceLastPhysicsUpdate = 0.0
 
 func updateThis():
-	var size : Vector3 = Vector3(0.25, 0.5, 0.25)
+	var size : Vector3 = Vector3(0.25, -0.5, 0.25)
 	
 	if (_box):
 		_box.free()
 	
 	_box = MeshInstance.new()
-	_box.translation = position
+	_box.translation = position + Vector3(0.0, 0.5, 0.0)
 	_box.mesh = PrismMesh.new()
 	_box.mesh.size = size * 2.0
 	
@@ -61,7 +61,7 @@ func asXMLElement():
 		s += "type=\"" + type + "\" "
 	if (template):
 		s += "template=\"" + template + "\" "
-	for i in range(0, 4):
+	for i in range(0, 6):
 		if (self["param" + str(i)]):
 			s += "param" + str(i) + "=\"" + self["param" + str(i)] + "\" "
 	s += "/>"

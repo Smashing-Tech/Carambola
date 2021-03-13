@@ -45,7 +45,7 @@ margin_right = 70.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Edit"
-items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, true, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, true, 11, 0, null, "", false ]
+items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, true, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,3 +248,44 @@ margin_top = 15.0
 margin_right = 532.0
 margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
+
+[node name="Options" type="WindowDialog" parent="."]
+visible = true
+margin_right = 800.0
+margin_bottom = 500.0
+popup_exclusive = true
+window_title = "Carambola Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Options"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 161.0
+margin_bottom = 30.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "CARAMBOLA OPTIONS"
+
+[node name="ScnBck" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+disabled = true
+pressed = true
+text = "Save backup of current scene when opening a new scene"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FsRestr" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 88.0
+margin_right = 392.0
+margin_bottom = 112.0
+disabled = true
+text = "Restrict file system to user:// (needed on some OSes, require restart)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
