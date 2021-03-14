@@ -1,10 +1,13 @@
 extends Node
 
-const app_version = ["2021", "03", "13", "Alpha"]
+const app_version = ["2021", "03", "14", "Alpha"]
 var textures = {
 	tiles = [],
 	decals = [],
 	powerups = {"ballfrenzy": null, "slomotion": null, "nitroballs": null},
+}
+var options = {
+	save_backup_scene = true,
 }
 
 func _ready():

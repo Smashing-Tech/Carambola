@@ -32,7 +32,7 @@ func _physics_process(delta):
 		timeSinceLastPhysicsUpdate = 0.0
 
 func updateThis():
-	var size : Vector3 = Vector3(0.25, -0.5, 0.25)
+	var size : Vector3 = Vector3(0.25, 0.5, 0.25)
 	
 	if (_box):
 		_box.free()
