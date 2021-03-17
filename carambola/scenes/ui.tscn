@@ -45,27 +45,27 @@ margin_right = 70.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Edit"
-items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, true, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
+items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, false, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Templates" type="MenuButton" parent="Menubar"]
+[node name="Tools" type="MenuButton" parent="Menubar"]
 margin_left = 70.0
-margin_right = 149.0
+margin_right = 116.0
 margin_bottom = 20.0
 focus_mode = 2
-text = "Templates"
-items = [ "Load templates", ExtResource( 9 ), 0, false, true, 0, 0, null, "", false ]
+text = "Tools"
+items = [ "Load templates.xml", ExtResource( 9 ), 0, false, false, 0, 0, null, "", false, "Clear templates", ExtResource( 6 ), 0, false, true, 1, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Help" type="MenuButton" parent="Menubar"]
-margin_left = 149.0
-margin_right = 191.0
+margin_left = 116.0
+margin_right = 158.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Help"
@@ -213,6 +213,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TemplateLoad" type="FileDialog" parent="."]
+margin_left = 12.0
+margin_top = 25.0
+margin_right = 1012.0
+margin_bottom = 575.0
+window_title = "Choose Templates.xml"
+mode_overrides_title = false
+mode = 0
+access = 2
+show_hidden_files = true
+current_dir = "/home/user/Development/Misc/carambola/carambola"
+current_path = "/home/user/Development/Misc/carambola/carambola/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="About" type="WindowDialog" parent="."]
 margin_left = 35.0
 margin_top = 52.0
@@ -250,7 +266,6 @@ margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
 
 [node name="Options" type="WindowDialog" parent="."]
-visible = true
 margin_right = 800.0
 margin_bottom = 500.0
 popup_exclusive = true

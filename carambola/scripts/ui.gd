@@ -3,6 +3,7 @@ extends Control
 onready var s_EditString : PackedScene = preload("res://scenes/edit_string.tscn")
 onready var s_EditBool : PackedScene = preload("res://scenes/edit_bool.tscn")
 onready var s_EditVector : PackedScene = preload("res://scenes/edit_vector.tscn")
+onready var s_EditVector2 : PackedScene = preload("res://scenes/edit_vector2.tscn")
 onready var s_EditInt : PackedScene = preload("res://scenes/edit_int.tscn")
 onready var s_EditColour : PackedScene = preload("res://scenes/edit_colour.tscn")
 
@@ -14,6 +15,8 @@ func _ready():
 	$SegFile.add_filter("*.xml ; Segment Files")
 	$SegLoad.add_filter("*.xml.mp3 ; Segment Files")
 	$SegLoad.add_filter("*.xml ; Segment Files")
+	$TemplateLoad.add_filter("templates.xml.mp3 ; Template Files")
+	$TemplateLoad.add_filter("templates.xml ; Template Files")
 	
 	propertiesPanel = $Tabs/Properties
 	segmentPanel = $Tabs/Seg
@@ -55,6 +58,8 @@ func update():
 				el = s_EditBool.instance()
 			elif (globals.selection[prop] is Vector3):
 				el = s_EditVector.instance()
+			elif (globals.selection[prop] is Vector2):
+				el = s_EditVector2.instance()
 			elif (globals.selection[prop] is int):
 				el = s_EditInt.instance()
 			elif (globals.selection[prop] is Color):
@@ -107,6 +112,9 @@ func show_file_select():
 
 func show_load_select():
 	$SegLoad.popup_centered()
+
+func show_template_select():
+	$TemplateLoad.popup_centered()
 
 func show_about():
 	$About.popup_centered()

@@ -11,9 +11,11 @@ func _ready():
 	
 	gui.get_node("Menubar").get_node("Objects").get_popup().connect("id_pressed", self, "handle_objects_menu")
 	gui.get_node("Menubar").get_node("File").get_popup().connect("id_pressed", self, "handle_file_menu")
+	gui.get_node("Menubar").get_node("Tools").get_popup().connect("id_pressed", self, "handle_tools_menu")
 	gui.get_node("Menubar").get_node("Help").get_popup().connect("id_pressed", self, "handle_help_menu")
 	gui.get_node("SegFile").connect("file_selected", self, "serialise_segment")
 	gui.get_node("SegLoad").connect("file_selected", self, "load_segment")
+	gui.get_node("TemplateLoad").connect("file_selected", globals, "load_templates")
 
 func _input(event):
 	last_event = event
@@ -76,12 +78,19 @@ func handle_objects_menu(id):
 	if (id == 1):
 		self.new_obstacle()
 	
+	if (id == 6):
+		self.new_decal()
+	
 	# Free an object
 	if (id == 3):
 		self.free_object()
 	
 	if (id == 11):
 		gui.show_options()
+
+func handle_tools_menu(id):
+	if (id == 0):
+		gui.show_template_select()
 
 func handle_help_menu(id):
 	if (id == 1):
@@ -167,15 +176,6 @@ func load_segment(path : String):
 			gui.segmentPanel.get_node("Size").text = file.get_named_attribute_value_safe("size")
 			gui.segmentPanel.get_node("Template").text = file.get_named_attribute_value_safe("template")
 			
-			# Here is how it SHOULD be done once the segment panel is designed better:
-			#var size = file.get_named_attribute_value_safe("size").split_floats(" ")
-			#if (len(size) == 3):
-			#	globals.seg_size = Vector3(size[0], size[1], size[2])
-			#else:
-			#	globals.seg_size = Vector3(12, 10, 16)
-			#
-			#globals.seg_template = file.get_named_attribute_value_safe("template")
-			
 			loaded_segment_data = true
 		
 		# Load a box
@@ -198,20 +198,21 @@ func load_segment(path : String):
 			
 			if (file.get_named_attribute_value_safe("visible") == "1"):
 				ent.visible = true
-				
-				var tile = file.get_named_attribute_value_safe("visible")
-				if (tile):
-					ent.tile = int(tile)
-				
-				var colour = file.get_named_attribute_value_safe("color").split_floats(" ")
-				if (len(colour) == 3):
-					ent.colour = Color(colour[0], colour[1], colour[2], 1.0)
-				elif (len(colour) == 4):
-					ent.colour = Color(colour[0], colour[1], colour[2], colour[3])
-				else:
-					ent.colour = Color(0.5, 0.5, 0.5, 1.0)
 			else:
 				ent.visible = false
+			
+			var tile = file.get_named_attribute_value_safe("tile")
+			if (tile):
+				ent.tile = int(tile)
+			
+			var colour = file.get_named_attribute_value_safe("color").split_floats(" ")
+			if (len(colour) == 3):
+				ent.colour = Color(colour[0], colour[1], colour[2], 1.0)
+			elif (len(colour) == 4):
+				ent.colour = Color(colour[0], colour[1], colour[2], colour[3])
+			else:
+				ent.colour = Color(0.5, 0.5, 0.5, 1.0)
+			
 			
 			if (file.get_named_attribute_value_safe("reflection") == "1"):
 				ent.reflection = true
@@ -243,15 +244,48 @@ func load_segment(path : String):
 			$Segment.add_child(ent)
 			objects.append(ent)
 		
+		# Load a decal
+		elif (objectType == "decal"):
+			var ent = EDecal.new()
+			
+			var pos = file.get_named_attribute_value_safe("pos").split_floats(" ")
+			if (len(pos) == 3):
+				ent.position = Vector3(pos[0], pos[1], pos[2])
+			else:
+				ent.position = Vector3(0.5, 0.5, 0.5)
+			
+			var size = file.get_named_attribute_value_safe("size").split_floats(" ")
+			if (len(size) == 2):
+				ent.size = Vector2(size[0], size[1])
+			else:
+				ent.size = Vector2(0.5, 0.5)
+			
+			var tile = file.get_named_attribute_value_safe("tile")
+			if (tile):
+				ent.decal = int(tile)
+			
+			if (file.get_named_attribute_value_safe("color") != ""):
+				ent.colourise = true
+				
+				var colour = file.get_named_attribute_value_safe("color").split_floats(" ")
+				if (len(colour) == 3):
+					ent.colour = Color(colour[0], colour[1], colour[2], 1.0)
+				elif (len(colour) == 4):
+					ent.colour = Color(colour[0], colour[1], colour[2], colour[3])
+				else:
+					ent.colour = Color(0.5, 0.5, 0.5, 1.0)
+			
+			$Segment.add_child(ent)
+			objects.append(ent)
+		
 		else:
 			not_loaded_count += 1
-		
-		# file.read()
+			print("Note: Did not load object of type " + objectType)
 	
 	if (not_loaded_count > 0):
-		gui.log_event("Did not load " + str(not_loaded_count) + " incompatible objects.")
+		print("Did not load " + str(not_loaded_count) + " incompatible objects.")
 	else:
-		gui.log_event("Loaded segment at \'" + path + "\' successfully.")
+		print("Loaded segment at \'" + path + "\' successfully.")
 
 ## ####################
 ## Actually doing stuff
@@ -281,3 +315,12 @@ func new_obstacle():
 	globals.set_active(newObs)
 	
 	gui.log_event("Created 1 obstacle(s).")
+
+func new_decal():
+	var newDec = EDecal.new()
+	
+	$Segment.add_child(newDec)
+	objects.append(newDec)
+	globals.set_active(newDec)
+	
+	gui.log_event("Created 1 decals(s).")

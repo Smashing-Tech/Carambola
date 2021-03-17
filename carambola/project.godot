@@ -17,16 +17,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "EBox",
 "language": "GDScript",
-"path": "res://scripts/box.gd"
+"path": "res://scripts/ebox.gd"
+}, {
+"base": "Node",
+"class": "EDecal",
+"language": "GDScript",
+"path": "res://scripts/edecal.gd"
 }, {
 "base": "Node",
 "class": "EObstacle",
 "language": "GDScript",
-"path": "res://scripts/obstacle.gd"
+"path": "res://scripts/eobstacle.gd"
 } ]
 _global_script_class_icons={
 "ClickableStaticBody": "",
 "EBox": "",
+"EDecal": "",
 "EObstacle": ""
 }
 
@@ -40,6 +46,7 @@ config/icon="res://icon.png"
 [autoload]
 
 globals="*res://scripts/global.gd"
+utils="*res://scripts/utils.gd"
 
 [display]
 
