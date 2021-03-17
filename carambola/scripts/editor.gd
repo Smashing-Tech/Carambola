@@ -15,7 +15,7 @@ func _ready():
 	gui.get_node("Menubar").get_node("Help").get_popup().connect("id_pressed", self, "handle_help_menu")
 	gui.get_node("SegFile").connect("file_selected", self, "serialise_segment")
 	gui.get_node("SegLoad").connect("file_selected", self, "load_segment")
-	gui.get_node("TemplateLoad").connect("file_selected", globals, "load_templates")
+	gui.get_node("TemplateLoad").connect("file_selected", self, "load_templates")
 
 func _input(event):
 	last_event = event
@@ -324,3 +324,7 @@ func new_decal():
 	globals.set_active(newDec)
 	
 	gui.log_event("Created 1 decals(s).")
+
+func load_templates(path : String):
+	globals.load_templates(path)
+	gui.log_event("Loaded templates file from '" + path + "'.")

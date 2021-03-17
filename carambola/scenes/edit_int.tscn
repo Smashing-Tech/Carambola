@@ -8,15 +8,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="value" type="LineEdit" parent="."]
+[node name="value" type="SpinBox" parent="."]
 margin_top = 20.0
 margin_right = 190.0
 margin_bottom = 52.0
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+min_value = -4.0
+max_value = 63.0
 
 [node name="label" type="RichTextLabel" parent="."]
 margin_right = 188.0

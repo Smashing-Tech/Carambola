@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://assets/icons/cake.svg" type="Texture" id=12]
 [ext_resource path="res://assets/icons/build.svg" type="Texture" id=13]
 [ext_resource path="res://assets/icons/decal.svg" type="Texture" id=14]
+[ext_resource path="res://assets/icons/texture.svg" type="Texture" id=15]
+[ext_resource path="res://assets/icons/layers_clear.svg" type="Texture" id=16]
 
 [node name="UI" type="Control"]
 script = ExtResource( 1 )
@@ -45,7 +47,7 @@ margin_right = 70.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Edit"
-items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 14 ), 0, false, false, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
+items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 15 ), 0, false, false, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,7 +59,7 @@ margin_right = 116.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Tools"
-items = [ "Load templates.xml", ExtResource( 9 ), 0, false, false, 0, 0, null, "", false, "Clear templates", ExtResource( 6 ), 0, false, true, 1, 0, null, "", false ]
+items = [ "Load templates", ExtResource( 9 ), 0, false, false, 0, 0, null, "", false, "Clear templates", ExtResource( 16 ), 0, false, true, 1, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false

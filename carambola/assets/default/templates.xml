@@ -1,0 +1,201 @@
+<templates>
+
+	<!-- TEMP -->
+	<template name="blue"> 				<properties color="0.7 0.8 1.0"/></template>
+	<template name="blackfloor"> 		<properties color="0 0 0" reflection="1" /></template>
+	<template name="work_s"> 			<properties lightLeft=".8" lightRight=".85" lightTop=".9" lightBottom=".75" lightFront="1" fogcolor="1.1 1.1 .9 0 0 .2" softshadow=".75" /></template>
+	<template name="work"> 				<properties tile="19" color="1 .98 .94"/></template>
+	<template name="scoretop"> 			<properties param0="color=.4 .8 1" /></template>
+
+
+	<!-- LEVEL MENU -->
+	<template name="menu_light"> 		<properties lightLeft=".85" lightRight=".95" lightTop="1.1" lightBottom=".7" lightFront=".8" /></template>
+	<template name="menu_start"> 		<properties color=".85 .9 .8"/></template>
+	<template name="menu_checkpoint"> 	<properties color=".8 .87 .9"/></template>
+	<template name="menu_wall"> 		<properties color=".2 .4 .45  .5 .75 .8  .2 .4 .45" tile="32 0 32" tileSize="4 12 4" tileRot="2 0 2" /></template>
+	<template name="menu_block"> 		<properties color=".15 .29 .33  .2 .4 .45  .15 .29 .33" tile="32 0 32" tileSize="4 12 4" tileRot="2 0 2" /></template>
+	<template name="menu_s"> 			<properties lightLeft=".7" lightRight=".9" lightTop="1" lightBottom=".85" lightFront="1" lightBack=".75" fogcolor="1.75 1.6 1.95 .07 .45 0" softshadow=".7" /></template>
+
+	
+	<!-- VS / CO-OP -->
+	<template name="split">		 		<properties tile="55" color=".2 .2 .2" reflection="1"/></template>
+	<template name="split_s"> 			<properties lightLeft="1" lightRight=".8" lightTop=".4" lightBottom=".5" lightFront=".9" fogcolor="1.3 1.1 1.4 -.1 .1 .2" softshadow=".75" /></template>
+	<template name="split_st"> 			<properties param0="color=0 .5 1" /></template>
+	<template name="split_glass">		<properties param0="color=.3 .5 .6" /></template>
+	<template name="split_menu">		<properties tile="19" color=".4 .4 .4" tileSize="2" /></template>
+	
+
+	<!-- BASIC -->
+	<template name="basic_s"> 			<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.75 1.6 1.95 .07 .45 0" softshadow=".7" /></template>
+	<template name="basic_dark_s"> 		<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.6 1.45 1 0 .3 .65" softshadow=".7" /></template>
+	<template name="basic_darker_s"> 	<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.55 1 1.5 0 .4 .5" softshadow=".75" /></template>
+	<template name="basic_score_s"> 	<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.3 1 1.6 0 .3 .6" softshadow=".7" /></template>
+	<template name="basic_start"> 		<properties tile="19" color=".8 .91 .96   .8 .91 .96   .2 .2 .2"/></template>
+	<template name="basic_start2"> 		<properties tile="19" color=".2 .2 .2"/></template>
+	<template name="basic"> 			<properties tile="19" color=".8 .91 .96"/></template>
+	<template name="basic_dark"> 		<properties tile="19" color=".7 .81 .86"/></template>
+	<template name="basic_dark_altar"> 	<properties tile="19" color=".7 .81 .86   1 1 1   .7 .81 .86"/></template>
+	<template name="basic_darker"> 		<properties tile="19" color=".4 .65 .81"/></template>
+	<template name="basic_darker_altar"><properties tile="19" color=".4 .65 .81   1 1 1   .4 .65 .81"/></template>
+	<template name="basic_darker_end"> 	<properties tile="19" color="1 1.3 1.4   1 1.3 1.4   .3 .55 .66"/></template>
+	<template name="basic_darker_end2"> <properties tile="19" color="1 1.3 1.4"/></template>
+	<template name="basic_score"> 		<properties tile="47" color=".3 .55 .91" reflection="1"/></template>
+	<template name="basic_score_end"> 	<properties tile="0" color="1 1 1" reflection="1"/></template>
+	<template name="basic_glass">		<properties param0="color=.66 .72 .76" /></template>
+	<template name="basic_st">			<properties param0="color=.4 .8 1" /></template>
+	<template name="basic_glass_darker"><properties param0="color=.66 .72 .76" /></template>
+	<template name="basic_st2">			<properties param0="color=.3 .82 .95" /></template>
+
+	
+	<!-- HOLODECK -->
+	<template name="holo_s"> 			<properties lightLeft="1" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor="1 1.7 2.2 .3 0 .2" softshadow=".65" /></template>	
+	<template name="holo_score_s"> 		<properties lightLeft="1" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor=".8 1.2 1.3 .2 0 .1" /></template>	
+	<template name="holo_wall_left">	<properties tile="40 36 40" tileRot="0 2 0" color="0 .9 1" /></template>
+	<template name="holo_wall_right"> 	<properties tile="40 35 40" color="0 .9 1" /></template>
+	<template name="holo_floor"> 		<properties reflection="1" tile="30 40 30" color="0 .8 .9" /></template>
+	<template name="holo_floor2"> 		<properties reflection="1" tile="30 40 30" color="0 .43 .5  .2 .9 1  0 .43 .5" tileSize="1" tileRot="2 0 2"/></template>
+	<template name="holo_floor_light">	<properties color="0 .7 .8   1 1.4 1.5   0 .7 .8" tile="30 22 30" tileSize="1" tileRot="2 0 2"/></template>
+	<template name="holo_right"> 		<properties color="1 1.3 1.35   0 .8 .9   0 .8 .9" tile="22 30 30" tileRot="0 1 1"/></template>
+	<template name="holo_left"> 		<properties color="1.2 1.6 1.7   0 .8 .9   0 .8 .9" tile="22 30 30" tileRot="0 3 3"/></template>
+	<template name="holo_front"> 		<properties color="0 .7 .8 0 .7 .8 1 1.3 1.35" tile="30 30 22" tileRot="3 2 0"/></template>
+	<template name="holo_top"> 			<properties color="0 .8 .9   1.1 1.6 1.7   0 .8 .9" tile="30 22 30"/></template>
+	<template name="holo_bottom"> 		<properties color="0 .8 .9   1 1.4 1.5   0 .8 .9" tile="30 22 30" tileRot="2 0 2"/></template>
+	<template name="holo_plain"> 		<properties color="0 .6 .7"/></template>
+	<template name="holo_score"> 		<properties tile="47" color="0 .8 .9" reflection="1"/></template>
+	<template name="holo_score_end"> 	<properties tile="0" color="1 1 1" reflection="1"/></template>
+	<template name="holo_glass"> 		<properties param0="color=.65 .7 .75" /></template>
+	<template name="holo_st"> 			<properties param0="color=0 .95 1" /></template>
+	
+
+	<!-- CAVE -->
+	<template name="cave_s"> 			<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".8" lightFront=".9" softshadow=".8" fogcolor="0 -.2 .4 1.2 1.3 .9" /></template>
+	<template name="cave_hall_s"> 		<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".8" lightFront=".9" softshadow=".8" fogcolor="0 -.1 .3 1.1 1.15 .9" /></template>
+	<template name="cave"> 				<properties color=".41 .35 .45" tile="25" tileSize="2 2 2" /></template>
+	<template name="cave_laser"> 		<properties color="1.4 1 1.3  1.4 1 1.3  .41 .35 .45" tile="0 0 25" tileSize="2 2 2" /></template>
+	<template name="cave_glass"> 		<properties param0="color=.58 .55 .65" /></template>
+	<template name="cave_st"> 			<properties param0="color=.5 .6 1" /></template>
+
+	
+	<!-- OCEAN -->
+	<template name="ocean_s"> 			<properties lightLeft="1" lightRight=".75" lightTop="1" lightBottom="1" lightFront=".9" fogcolor=".6 1.3 1.5 -.4 -.25 0" softshadow=".8" /></template>
+	<template name="ocean"> 			<properties color="0 .65 .8" tile="27" tileSize="1 1 1" /></template>
+	<template name="ocean2"> 			<properties color="0 .65 .8   0 .35 .5   0 .65 .8" tile="27" tileSize="1 1 1" reflection="1"/></template>
+	<template name="ocean3"> 			<properties color="0 .35 .5   0 .65 .8   0 .65 .8" tile="27" tileSize="1 1 1" reflection="1"/></template>
+	<template name="ocean_glass"> 		<properties param0="color=.5 .55 .6" /></template>
+	<template name="ocean_st"> 			<properties param0="color=0 .7 1" /></template>
+
+
+	<!-- CANYON -->
+	<template name="canyon_s"> 			<properties lightLeft=".8" lightRight=".85" lightTop=".9" lightBottom=".95" lightFront="1" fogcolor="1.4 1.4 1.2 0 0 .2" softshadow=".7" /></template>
+	<template name="canyon"> 			<properties color=".7 .3 .25" tile="25" tileSize="2 2 2" /></template>
+	<template name="canyon_glass"> 		<properties param0="color=.8 .2 .3" /></template>
+	<template name="canyon_st"> 		<properties param0="color=.4 .8 1" /></template>
+
+	
+	<!-- RIVER -->
+	<template name="river_s"> 			<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".75" lightFront=".9" fogcolor="1.4 1.7 1.8 0 .2 .2" softshadow=".7"/></template>
+	<template name="river_blue_s">		<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".75" lightFront=".9" fogcolor="1.4 1.7 1.8 0 .2 .2" softshadow=".7"/></template>
+	<template name="river_green_s"> 	<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".75" lightFront=".9" fogcolor="1.2 1.6 1.8 -.4 0 -.2" softshadow=".7"/></template>
+	<template name="river_red_s"> 		<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".75" lightFront=".9" fogcolor="1.55 1.1 1.1 0 .25 .2"/></template>
+	<template name="river_score_s"> 	<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".75" lightFront=".9" fogcolor="1 1.4 1.3 0 .2 .2"/></template>
+	<template name="river_wall"> 		<properties tile="5" color=".8 .9 .92"/></template>
+	<template name="river_wall_green"> 	<properties tile="5 0 5" color=".8 .92 .9"/></template>
+	<template name="river_ice"> 		<properties tile="0" color=".8 .9 .92   .96 .99 1   .8 .9 .92"/></template>
+	<template name="river_blue"> 		<properties tile="5" color="0 .7 .8   0 .9 1   0 .7 .8" reflection="true"/></template>
+	<template name="river_ice_green"> 	<properties tile="0" color=".8 .92 .9   .96 1 .99   .8 .92 .9"/></template>
+	<template name="river_green"> 		<properties tile="5" color=".2 .4 .3   .2 .6 .5   .2 .4 .3" reflection="true"/></template>
+	<template name="river_red"> 		<properties tile="5" color="1 .2 .1   .9 .2 0   1.2 .4 .3" reflection="true"/></template>
+	<template name="river_score"> 		<properties tile="47" color=".2 .6 .5" reflection="1"/></template>
+	<template name="river_score_end"> 	<properties tile="0" color="1 1 1" reflection="1"/></template>
+	<template name="river_glass"> 		<properties param0="color=.65 .7 .75" /></template>
+	<template name="river_st"> 			<properties param0="color=0 .8 .85" /></template>
+
+
+	<!-- CAVE 2 -->
+	<template name="cave2_s"> 			<properties lightLeft="1" lightRight=".85" lightTop="1" lightBottom=".7" lightFront=".9" softshadow=".8" fogcolor=".3 0 .5 1.2 .8 .6" /></template>
+	<template name="cave2"> 			<properties color=".6 .2 .3" tile="25" tileSize="2 2 2" /></template>
+	<template name="cave2_laser"> 		<properties color="1.4 1 1.3  1.4 1 1.3  .41 .35 .45" tile="0 0 25" tileSize="2 2 2" /></template>
+	<template name="cave2_glass"> 		<properties param0="color=.7 .5 .6" /></template>
+	<template name="cave2_st"> 			<properties param0="color=.4 .8 1" /></template>
+
+
+	<!-- NIGHT -->
+	<template name="night_s"> 			<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.2 1.6 1.7 -.1 -.1 0" softshadow="1" /></template>
+	<template name="night"> 			<properties tile="41" color=".55 .65 .75" reflection="1"/></template>
+	<template name="night_glass">		<properties param0="color=.6 .65 .65" /></template>
+	<template name="night_st">			<properties param0="color=.5 .84 1" /></template>
+
+	
+	<!-- BROWNIE -->
+	<template name="brownie_s"> 		<properties lightLeft=".95" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor="1 1.2 1.4 .4 -.3 -.4" softshadow="1" /></template>
+	<template name="brownie_s2"> 		<properties lightLeft=".95" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor="1.2 1.8 2 .1 -1 -1.2" softshadow=".75" /></template>
+	<template name="brownie_s3"> 		<properties lightLeft=".95" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor=".6 1.2 1.4 .3 -.8 -1" softshadow="1" /></template>
+	<template name="brownie"> 			<properties tile="58" color="1.1 .2 .2"/></template>
+	<template name="brownie_gradient"> 	<properties tile="59 58 59" color="1.1 .2 .2" tileSize="1 5 1" tileRot="2 0 2"/></template>
+	<template name="brownie2"> 			<properties tile="58" color="1.6 1.15 1.15"/></template>
+	<template name="brownie2_gradient"> <properties tile="59 58 59" color="1.6 1.15 1.15" tileSize="1 5 1" tileRot="2 0 2"/></template>
+	<template name="brownie3"> 			<properties tile="60 57 60" color="1.4 1.1 .95  0 .8 .9  1.4 1.1 .95"/></template>
+	<template name="brownie4"> 			<properties tile="60 57 60" color="1 .4 .4"/></template>
+	<template name="brownie_floor"> 	<properties tile="54 57 54" color=".5 .9 1  0 .8 .9  .5 .9 1"/></template>
+	<template name="brownie_ceiling"> 	<properties tile="57" color=".5 0 0"/></template>
+	<template name="brownie_glass">		<properties param0="color=.8 .1 .1" /></template>
+	<template name="brownie_glass2">	<properties param0="color=.6 0 0" /></template>
+	<template name="brownie_st">		<properties param0="color=0 .85 1" /></template>
+	
+	
+	<!-- PHOSPHOR -->
+	<template name="phosphor_s"> 		<properties lightLeft=".95" lightRight=".75" lightTop="1" lightBottom=".7" lightFront="1.1" fogcolor="1.4 1.5 1.2 -.4 .3 .3" softshadow=".85" /></template>
+	<template name="phosphor"> 			<properties tile="55" color=".3 .9 .5"/></template>
+	<template name="phosphor_glass">	<properties param0="color=.5 .6 .6" /></template>
+	<template name="phosphor_st">		<properties param0="color=0 .75 .9" /></template>
+
+
+	<!-- HYPERSPACE -->
+	<template name="hyper_s"> 			<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1 1.3 2 .1 0 0" softshadow=".85" /></template>
+	<template name="hyper"> 			<properties tile="13" color=".7 .6 1" reflection="1"/></template>
+	<template name="hyper_red"> 		<properties tile="13" color="1.5 .8 1.3" reflection="1"/></template>
+	<template name="hyper_red2"> 		<properties tile="13" color=".7 .6 1  1.5 .8 1.3  1.5 .8 1.3" reflection="1"/></template>
+	<template name="hyper_red3"> 		<properties tile="13" color="1.5 .8 1.3  1.5 .8 1.3  .7 .6 1" reflection="1"/></template>
+	<template name="hyper_glow">		<properties tile="13" color="1.3 1.2 1.3  .7 .6 1  1.3 1.2 1.3" reflection="1"/></template>
+	<template name="hyper_glass">		<properties param0="color=.4 .55 .6" /></template>
+	<template name="hyper_st">			<properties param0="color=0 .75 .9" /></template>
+
+
+	<!-- CITY -->
+	<template name="city_s"> 			<properties lightLeft=".9" lightRight=".8" lightTop=".8" lightBottom=".6" lightFront="1.1" fogcolor="2 1 0 .1 -.2 0" softshadow=".85" /></template>
+	<template name="city"> 				<properties tile="14" color=".4 0 0" reflection="1" tileSize="2 2 2"/></template>
+	<template name="city_light"> 		<properties tile="14" color=".4 0 0  1.4 1 .8  1.4 1 .8" reflection="1"/></template>
+	<template name="city_light2"> 		<properties tile="14" color="1.4 1 .8  .4 0 0  1.4 1 .8" reflection="1"/></template>
+	<template name="city_glass">		<properties param0="color=.7 0 0" /></template>
+	<template name="city_st">			<properties param0="color=0 .75 .9" /></template>
+
+	
+	<!-- ENDLESS -->
+	<template name="endless_s"> 		<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.1 1.05 1 -.15 -.125 -.1" softshadow=".85" /></template>
+	<template name="endless"> 			<properties tile="27" color=".4 .4 .4"/></template>
+	<template name="endless_glass">		<properties param0="color=.4 .55 .6" /></template>
+	<template name="endless_st">		<properties param0="color=0 .75 .9" /></template>
+
+
+	<!-- ZEN -->
+	<template name="zen_s"> 			<properties lightLeft="1" lightRight=".8" lightTop="1" lightBottom=".7" lightFront=".88" fogcolor="1.1 1.05 1 -.15 -.125 -.1" softshadow=".85" /></template>
+	<template name="zen"> 				<properties tile="27" color=".2 .3 .15" reflection="0"/></template>
+	<template name="zen_glass">			<properties param0="color=.2 .6 .7" /></template>
+	<template name="zeb_st">			<properties param0="color=0 .75 .9" /></template>
+
+	
+	<!-- CREDITS -->
+	<template name="credits"> 			<properties color=".1 .22 .25" tile="27" tileSize="1 1 1" reflection="1" /></template>
+	<template name="credits_glass">		<properties param0="color=1 .7 0" /></template>
+
+	
+	<!-- DEATHSTAR -->
+	<template name="deathstar_s"> 		<properties lightLeft="1" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor="1.2 1.6 1.8 .1 .2 0" /></template>
+	<template name="deathstar_s2"> 		<properties lightLeft="1" lightRight=".75" lightTop="1" lightBottom=".7" lightFront=".9" fogcolor="1.2 1.6 1.8 .1 .2 0"/></template>
+	<template name="deathstar"> 		<properties color=".72 .74 .7" tile="20" reflection="1" /></template>
+	<template name="deathstar2"> 		<properties color=".54 .58 .5" tile="20" reflection="1" /></template>
+	<template name="deathstar_circuit"> <properties tile="35" color=".72 .74 .7"/></template>
+	<template name="deathstar_circuit2"><properties tile="24" color=".72 .74 .7"/></template>
+	<template name="deathstar_end"> 	<properties color=".7 1 1.2" tile="20"/></template>
+	<template name="deathstar_glass"> 	<properties param0="color=.7 .73 .75" /></template>	
+</templates>

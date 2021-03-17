@@ -25,6 +25,9 @@ func _ready():
 	for i in range(0, 68):
 		textures.decals.append(load("res://assets/decals/" + str(i - 4) + ".png"))
 		textures.decals[i].set_flags(Texture.FLAGS_DEFAULT)
+	
+	# Load default templates
+	self.load_templates("res://assets/default/templates.xml")
 
 # Get a loaded tile texture
 func get_tile(id : int):
