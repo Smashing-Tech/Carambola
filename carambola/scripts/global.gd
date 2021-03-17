@@ -40,7 +40,12 @@ func load_templates(path : String):
 	xml.open(path)
 	
 	while (!xml.read()):
-		var ent_name = xml.get_node_name()
+		var ent_name = ""
+		# This is needed so godot doesn't complain if we were to get_node_name on NODE_TEXT type
+		if (xml.get_node_type() == XMLParser.NODE_ELEMENT):
+			ent_name = xml.get_node_name()
+		else:
+			ent_name = ""
 		
 		if (ent_name == "template" && xml.get_node_type() == XMLParser.NODE_ELEMENT):
 			var temp_name = xml.get_named_attribute_value_safe("name")
@@ -49,18 +54,15 @@ func load_templates(path : String):
 				continue
 			
 			# Move forward until the get to the template's properties element
-			while (xml.get_node_name() != "properties"):
+			while (xml.get_node_type() != XMLParser.NODE_ELEMENT || xml.get_node_name() != "properties"):
 				xml.read()
 			
 			# Just making sure
 			assert(xml.get_node_name() == "properties")
 			
 			var temp_dict = {}
-			print(temp_name, " has :")
 			for i in range(0, xml.get_attribute_count()):
 				temp_dict[xml.get_attribute_name(i)] = xml.get_attribute_value(i)
-				print(xml.get_attribute_name(i), " = ", xml.get_attribute_value(i))
-			print("\n")
 			
 			templates[temp_name] = temp_dict
 	
