@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/icons/decal.svg" type="Texture" id=14]
 [ext_resource path="res://assets/icons/texture.svg" type="Texture" id=15]
 [ext_resource path="res://assets/icons/layers_clear.svg" type="Texture" id=16]
+[ext_resource path="res://scripts/Options.gd" type="Script" id=17]
 
 [node name="UI" type="Control"]
 script = ExtResource( 1 )
@@ -268,10 +269,12 @@ margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
 
 [node name="Options" type="WindowDialog" parent="."]
+visible = true
 margin_right = 800.0
 margin_bottom = 500.0
 popup_exclusive = true
 window_title = "Carambola Options"
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -284,12 +287,48 @@ margin_bottom = 30.0
 rect_scale = Vector2( 1.5, 1.5 )
 text = "CARAMBOLA OPTIONS"
 
-[node name="Button" type="Button" parent="Options"]
+[node name="Save" type="Button" parent="Options"]
 margin_left = 16.0
 margin_top = 448.0
 margin_right = 136.0
 margin_bottom = 484.0
 text = "Save Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CarambolaExt" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 362.0
+margin_bottom = 80.0
+text = "Use carambola segment extensions"
+
+[node name="LCarambolaExt" type="Label" parent="Options"]
+margin_left = 56.0
+margin_top = 80.0
+margin_right = 461.0
+margin_bottom = 94.0
+text = "This will enable some extra extensions to the segment format. While it is still compatible with Smash Hit (that
+is, they can be loaded fine) they add some extra bloat to the segment files. An example of what this changes is
+that the \"Editor Name\" property is preserved for objects."
+
+[node name="Backup" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 144.0
+margin_right = 362.0
+margin_bottom = 168.0
+text = "Save backups to user data folder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBackup" type="Label" parent="Options"]
+margin_left = 56.0
+margin_top = 168.0
+margin_right = 765.0
+margin_bottom = 216.0
+text = "This will save a backup of segments during some events that may need to be undone later."
 __meta__ = {
 "_edit_use_anchors_": false
 }

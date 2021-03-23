@@ -121,6 +121,7 @@ func show_about():
 
 func show_options():
 	$Options.popup_centered()
+	$Options.on_show()
 
 func set_output_and_show(output : String):
 	$XML/Output.text = output

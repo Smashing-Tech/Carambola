@@ -1,19 +1,10 @@
 extends Node
 
-const app_version = ["2021", "03", "17", "Alpha"]
+const app_version = ["2021", "03", "23", "Alpha"]
 var textures = {
 	tiles = [],
 	decals = [],
 	powerups = {"ballfrenzy": null, "slomotion": null, "nitroballs": null},
-}
-
-var options = {
-	save_backup_scene = true,
-}
-
-# Needed, even if not enabled...
-var templates = {
-	"?Carambola": {"color": "0.0 1.0 0.0"}, # This one can be used to make sure that templates system is working
 }
 
 func _ready():
@@ -28,6 +19,42 @@ func _ready():
 	
 	# Load default templates
 	self.load_templates("res://assets/default/templates.xml")
+	
+	# Load options
+	self.load_options()
+
+#
+# Options and related things
+#
+var options = {
+	save_backup_scene = true,
+	enable_carambola_extensions = false,
+}
+
+func save_options():
+	var cf = ConfigFile.new()
+	
+	for d in options.keys():
+		cf.set_value("General", d, options[d])
+	
+	cf.save("user://options.ini")
+	
+	print("Saved options to options.ini.")
+
+func load_options():
+	var cf = ConfigFile.new()
+	
+	if (cf.load("user://options.ini") != OK):
+		print("Error loading config file; this is normal on first run.")
+		return
+	
+	for d in options.keys():
+		options[d] = cf.get_value("General", d, options[d])
+
+# Needed, even if not enabled...
+var templates = {
+	"?Carambola": {"color": "0.0 1.0 0.0"}, # This one can be used to make sure that templates system is working
+}
 
 # Get a loaded tile texture
 func get_tile(id : int):
