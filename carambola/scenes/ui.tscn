@@ -37,7 +37,7 @@ __meta__ = {
 margin_right = 35.0
 margin_bottom = 20.0
 text = "File"
-items = [ "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Mesh", ExtResource( 12 ), 1, false, true, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Get XML", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false, "Set XML", ExtResource( 2 ), 0, false, true, 6, 0, null, "", false ]
+items = [ "Close", ExtResource( 6 ), 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 8, 0, null, "", true, "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Mesh", ExtResource( 12 ), 1, false, true, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Get XML", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false, "Set XML", ExtResource( 2 ), 0, false, true, 6, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false

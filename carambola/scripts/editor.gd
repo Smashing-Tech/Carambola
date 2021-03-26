@@ -5,6 +5,8 @@ var cam
 var gui
 var objects = []
 
+var DEBUG_has_freed_lights : bool = false
+
 func _ready():
 	cam = $Camera
 	gui = $UI
@@ -32,11 +34,12 @@ func _physics_process(delta):
 	globals.selectionChanged = false
 	
 	# Remove any invalid objects from the list
-	var new_list = []
-	for o in objects:
-		if (!is_instance_valid(o)):
-			new_list.append(o)
-	objects = new_list
+	# NOTE: Too agressive, also caused slow preformance in some cases
+#	var new_list = []
+#	for o in objects:
+#		if (!is_instance_valid(o)):
+#			new_list.append(o)
+#	objects = new_list
 	
 	# Update keyboard bindings
 	self.camera_update(delta)
@@ -51,12 +54,6 @@ func camera_update(delta):
 		self.free_object()
 	
 	if (Input.is_key_pressed(KEY_CONTROL)):
-		if (Input.is_key_pressed(KEY_S)):
-			gui.show_file_select()
-		
-		if (Input.is_key_pressed(KEY_O)):
-			gui.show_load_select()
-		
 		if (Input.is_key_pressed(KEY_SHIFT)):
 			if (Input.is_key_pressed(KEY_B)):
 				self.new_box()
@@ -64,11 +61,33 @@ func camera_update(delta):
 			if (Input.is_key_pressed(KEY_O)):
 				self.new_obstacle()
 		
+		# Debug feature to free lights since they can be SLOW!
+		if (Input.is_key_pressed(KEY_ALT)):
+			if (Input.is_key_pressed(KEY_F) and Input.is_key_pressed(KEY_C)):
+				if (!DEBUG_has_freed_lights):
+					$DirectionalLight.free()
+					$DirectionalLight2.free()
+					$DirectionalLight3.free()
+					$DirectionalLight4.free()
+					DEBUG_has_freed_lights = true
+					print("Debug: Freed lights!")
+					gui.log_event("Debug: Freed lights!")
+		
+		if (Input.is_key_pressed(KEY_S)):
+			gui.show_file_select()
+		
+		if (Input.is_key_pressed(KEY_O)):
+			gui.show_load_select()
+		
 		if (Input.is_key_pressed(KEY_R)):
 			cam.translation = Vector3(0, 1, 4)
 			cam.rotation_degrees = Vector3(0, 0, 0)
 
+
 func handle_file_menu(id):
+	if (id == 7):
+		self.close_segment()
+	
 	if (id == 0):
 		gui.show_load_select()
 	
@@ -160,11 +179,10 @@ func backup_segment():
 # Loads a segment into the editor
 func load_segment(path : String):
 	# Serialise the current segment then wipe it
-	globals.selection = null
 	if (globals.options["save_backup_scene"]):
+		globals.selection = null
 		self.backup_segment()
-	for ent in objects: if (ent): ent.free()
-	objects = []
+	self.close_segment()
 	
 	# Start loading the new segment
 	var file = XMLParser.new()
@@ -339,3 +357,14 @@ func new_decal():
 func load_templates(path : String):
 	globals.load_templates(path)
 	gui.log_event("Loaded templates file from '" + path + "'.")
+
+func close_segment():
+	# This actually deletes the segment
+	print("Closing segment...")
+	globals.set_active(null)
+	
+	for ent in objects:
+		if (is_instance_valid(ent)):
+			ent.free()
+	
+	objects = []

@@ -57,14 +57,6 @@ var templates = {
 	"?Carambola": {"color": "0.0 1.0 0.0"}, # This one can be used to make sure that templates system is working
 }
 
-# Get a loaded tile texture
-func get_tile(id : int):
-	return textures.tiles[id % 64]
-
-# Get a loaded decal texture
-func get_decal(id : int):
-	return textures.decals[(id + 4) % 68]
-
 # Load a templates file into a double-dictionary that contains the templates
 func load_templates(path : String):
 	var xml = XMLParser.new()
@@ -99,13 +91,23 @@ func load_templates(path : String):
 	
 	print("Info: Loaded templates file.")
 
+# Get a loaded tile texture
+func get_tile(id : int):
+	return textures.tiles[id % 64]
+
+# Get a loaded decal texture
+func get_decal(id : int):
+	return textures.decals[(id + 4) % 68]
+
+# Selection-related
 var selection
 var selectionChanged : bool = false
-
-var seg_size : Vector3 = Vector3()
-var seg_template : String = ""
 
 # Set an active object
 func set_active(object : Node):
 	self.selection = object
 	self.selectionChanged = true
+
+# Segment-related
+var seg_size : Vector3 = Vector3()
+var seg_template : String = ""
