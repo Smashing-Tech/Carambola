@@ -1,11 +1,10 @@
-extends Node
+extends EBase
 
 class_name EBox
 
 # Sub-components
 const _Properties = ["editor_name", "position", "size", "template", "reflection", "visible", "tile", "colour"]
-var _box : MeshInstance = null
-var timeSinceLastPhysicsUpdate : float = 0.0
+var box_mesh_instance : MeshInstance = null
 
 # Elements
 var editor_name : String = "Box" + str(randi() % 1000)
@@ -21,19 +20,18 @@ func _ready():
 	globals.selection = self
 
 func _physics_process(delta):
-	timeSinceLastPhysicsUpdate += delta
-	if (timeSinceLastPhysicsUpdate > 0.1):
-		updateThis()
-		timeSinceLastPhysicsUpdate = 0.0
+	if (needs_update):
+		self.updateThis()
+		needs_update = false
 
 func updateThis():
-	if (_box):
-		_box.free()
+	if (box_mesh_instance):
+		box_mesh_instance.free()
 	
-	_box = MeshInstance.new()
-	_box.translation = position
-	_box.mesh = CubeMesh.new()
-	_box.mesh.size = size * 2.0
+	box_mesh_instance = MeshInstance.new()
+	box_mesh_instance.translation = position
+	box_mesh_instance.mesh = CubeMesh.new()
+	box_mesh_instance.mesh.size = size * 2.0
 	
 	var mat = SpatialMaterial.new()
 	mat.albedo_color = colour
@@ -48,16 +46,16 @@ func updateThis():
 		if (globals.templates[template].has("color")):
 			mat.albedo_color = utils.unpack_colour_string(globals.templates[template].color)
 	
-	_box.set_surface_material(0, mat)
+	box_mesh_instance.set_surface_material(0, mat)
 	
-	var _col = ClickableStaticBody.new()
+	var collider = ClickableStaticBody.new()
 	var box = BoxShape.new()
 	box.set_extents(size)
-	var shape = _col.create_shape_owner(box)
-	_col.shape_owner_add_shape(shape, box)
-	_box.add_child(_col)
+	var shape = collider.create_shape_owner(box)
+	collider.shape_owner_add_shape(shape, box)
+	box_mesh_instance.add_child(collider)
 	
-	self.add_child(_box)
+	self.add_child(box_mesh_instance)
 
 func set_active():
 	globals.selection = self

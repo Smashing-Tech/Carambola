@@ -1,6 +1,7 @@
 extends Control
 
 var prop : String = ""
+var last : Color
 var hold
 
 func _ready():
@@ -9,11 +10,15 @@ func _ready():
 	if (globals.selection):
 		$value.color = globals.selection[prop]
 	
+	last = $value.color
 	hold = globals.selection
 
 func _process(_delta):
-	if (hold == globals.selection):
-		globals.selection[prop] = $value.color
+	if ($value.color != last):
+		if (hold == globals.selection):
+			globals.selection[prop] = $value.color
+			globals.selection.set_update()
+		last = $value.color
 
 func set_property(prop_new : String):
 	self.prop = prop_new

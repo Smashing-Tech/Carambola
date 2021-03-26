@@ -1,4 +1,4 @@
-extends Node
+extends EBase
 
 class_name EObstacle
 
@@ -26,10 +26,9 @@ func _ready():
 	globals.selection = self
 
 func _physics_process(delta):
-	timeSinceLastPhysicsUpdate += delta
-	if (timeSinceLastPhysicsUpdate > 0.1):
-		updateThis()
-		timeSinceLastPhysicsUpdate = 0.0
+	if (needs_update):
+		self.updateThis()
+		needs_update = false
 
 func updateThis():
 	var size : Vector3 = Vector3(0.25, 0.5, 0.25)
