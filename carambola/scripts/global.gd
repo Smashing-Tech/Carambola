@@ -1,6 +1,6 @@
 extends Node
 
-const app_version = ["2021", "03", "23", "Alpha"]
+const app_version = ["2021", "03", "27", "Alpha"]
 var textures = {
 	tiles = [],
 	decals = [],

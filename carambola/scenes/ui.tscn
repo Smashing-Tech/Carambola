@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/icons/texture.svg" type="Texture" id=15]
 [ext_resource path="res://assets/icons/layers_clear.svg" type="Texture" id=16]
 [ext_resource path="res://scripts/Options.gd" type="Script" id=17]
+[ext_resource path="res://icon.svg" type="Texture" id=18]
 
 [node name="UI" type="Control"]
 script = ExtResource( 1 )
@@ -235,7 +236,7 @@ __meta__ = {
 [node name="About" type="WindowDialog" parent="."]
 margin_left = 35.0
 margin_top = 52.0
-margin_right = 492.0
+margin_right = 668.0
 margin_bottom = 242.0
 window_title = "About"
 __meta__ = {
@@ -243,10 +244,18 @@ __meta__ = {
 }
 
 [node name="About" type="Label" parent="About"]
-margin_left = 13.0
+margin_left = 186.0
 margin_top = 17.0
-margin_right = 446.0
+margin_right = 619.0
 margin_bottom = 167.0
+
+[node name="TextureRect" type="TextureRect" parent="About"]
+margin_left = 19.0
+margin_top = 16.0
+margin_right = 275.0
+margin_bottom = 272.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
 
 [node name="XML" type="WindowDialog" parent="."]
 margin_left = 165.0
@@ -269,7 +278,6 @@ margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
 
 [node name="Options" type="WindowDialog" parent="."]
-visible = true
 margin_right = 800.0
 margin_bottom = 500.0
 popup_exclusive = true
