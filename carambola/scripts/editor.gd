@@ -21,15 +21,24 @@ func _input(event):
 	last_event = event
 
 func _physics_process(delta):
-	if (globals.selection):
+	# Generate XML is status bar
+	if (globals.options["show_xml_in_status"] and globals.selection):
 		gui.log_event(globals.selection.asXMLElement())
-	else:
-		pass
 	
+	# Update the UI
 	gui.update()
 	
+	# Reset selectionChanged
 	globals.selectionChanged = false
 	
+	# Remove any invalid objects from the list
+	var new_list = []
+	for o in objects:
+		if (!is_instance_valid(o)):
+			new_list.append(o)
+	objects = new_list
+	
+	# Update keyboard bindings
 	self.camera_update(delta)
 
 func camera_update(delta):
@@ -152,7 +161,8 @@ func backup_segment():
 func load_segment(path : String):
 	# Serialise the current segment then wipe it
 	globals.selection = null
-	self.backup_segment()
+	if (globals.options["save_backup_scene"]):
+		self.backup_segment()
 	for ent in objects: if (ent): ent.free()
 	objects = []
 	
@@ -293,8 +303,9 @@ func load_segment(path : String):
 
 func free_object():
 	if (globals.selection):
-			globals.selection.free()
-			globals.selection = null
+		globals.selection.free()
+		globals.selection = null
+		gui.log_event("Freed the active obstacle!")
 	else:
 		gui.log_event("Error: No object has been selected!")
 

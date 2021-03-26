@@ -29,6 +29,7 @@ func _ready():
 var options = {
 	save_backup_scene = true,
 	enable_carambola_extensions = false,
+	show_xml_in_status = true,
 }
 
 func save_options():

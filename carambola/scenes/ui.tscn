@@ -332,3 +332,23 @@ text = "This will save a backup of segments during some events that may need to 
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Output" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 200.0
+margin_right = 362.0
+margin_bottom = 224.0
+text = "Show XML output in status bar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LOutput" type="Label" parent="Options"]
+margin_left = 56.0
+margin_top = 224.0
+margin_right = 765.0
+margin_bottom = 272.0
+text = "When a valid object is selected, the XML output of that selected object will be rendered out to the status bar."
+__meta__ = {
+"_edit_use_anchors_": false
+}
