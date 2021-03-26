@@ -120,7 +120,7 @@ func segment_to_xml():
 	
 	# Store a line to the file for each obstacle
 	for obj in objects:
-		if (obj):
+		if (is_instance_valid(obj)):
 			seg += "\t" + obj.asXMLElement() + "\n"
 	
 	# Store the ending line
