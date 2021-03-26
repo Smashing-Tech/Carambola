@@ -76,6 +76,8 @@ func asXMLElement():
 		if (colour.a < 1.0):
 			cstr += " " + str(colour.a)
 		s += "color=\"" + cstr + "\" "
+	if (globals.options.enable_carambola_extensions):
+		s += "_Name=\"" + editor_name + "\" "
 	s += "/>"
 	
 	return s

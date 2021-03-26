@@ -28,8 +28,8 @@ func _ready():
 #
 var options = {
 	save_backup_scene = true,
-	enable_carambola_extensions = false,
-	show_xml_in_status = true,
+	enable_carambola_extensions = true,
+	show_xml_in_status = false,
 }
 
 func save_options():

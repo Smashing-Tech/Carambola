@@ -247,6 +247,11 @@ func load_segment(path : String):
 			else:
 				ent.reflection = false
 			
+			# For Carambola extensions
+			if (globals.options.enable_carambola_extensions):
+				var n = file.get_named_attribute_value_safe("_Name")
+				if (n): ent.editor_name = n
+			
 			self.add_child(ent)
 			objects.append(ent)
 		
@@ -268,6 +273,11 @@ func load_segment(path : String):
 			ent.param3 = file.get_named_attribute_value_safe("param3")
 			ent.param4 = file.get_named_attribute_value_safe("param4")
 			ent.param5 = file.get_named_attribute_value_safe("param5")
+			
+			# For Carambola extensions
+			if (globals.options.enable_carambola_extensions):
+				var n = file.get_named_attribute_value_safe("_Name")
+				if (n): ent.editor_name = n
 			
 			$Segment.add_child(ent)
 			objects.append(ent)
@@ -302,6 +312,11 @@ func load_segment(path : String):
 					ent.colour = Color(colour[0], colour[1], colour[2], colour[3])
 				else:
 					ent.colour = Color(0.5, 0.5, 0.5, 1.0)
+			
+			# For Carambola extensions
+			if (globals.options.enable_carambola_extensions):
+				var n = file.get_named_attribute_value_safe("_Name")
+				if (n): ent.editor_name = n
 			
 			$Segment.add_child(ent)
 			objects.append(ent)
