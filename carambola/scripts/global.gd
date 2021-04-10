@@ -1,6 +1,6 @@
 extends Node
 
-const app_version = ["2021", "03", "27", "Alpha"]
+const app_version = ["2021", "04", "10", "Alpha"]
 var textures = {
 	tiles = [],
 	decals = [],
@@ -30,6 +30,7 @@ var options = {
 	save_backup_scene = true,
 	enable_carambola_extensions = true,
 	show_xml_in_status = false,
+	enable_stonehack = false,
 }
 
 func save_options():

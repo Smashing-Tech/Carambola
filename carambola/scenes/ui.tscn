@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
-[ext_resource path="res://assets/icons/open.svg" type="Texture" id=2]
 [ext_resource path="res://assets/icons/file_download.svg" type="Texture" id=3]
 [ext_resource path="res://assets/icons/add_box.svg" type="Texture" id=4]
 [ext_resource path="res://assets/icons/add_circle.svg" type="Texture" id=5]
@@ -38,7 +37,7 @@ __meta__ = {
 margin_right = 35.0
 margin_bottom = 20.0
 text = "File"
-items = [ "Close", ExtResource( 19 ), 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 8, 0, null, "", true, "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Mesh", ExtResource( 12 ), 1, false, true, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Get XML", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false, "Set XML", ExtResource( 2 ), 0, false, true, 6, 0, null, "", false ]
+items = [ "Close", ExtResource( 19 ), 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 8, 0, null, "", true, "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Stone", ExtResource( 12 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Source", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -279,6 +278,7 @@ margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
 
 [node name="Options" type="WindowDialog" parent="."]
+visible = true
 margin_right = 800.0
 margin_bottom = 500.0
 popup_exclusive = true
@@ -361,3 +361,80 @@ text = "When a valid object is selected, the XML output of that selected object 
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stonehack" type="CheckBox" parent="Options"]
+margin_left = 16.0
+margin_top = 256.0
+margin_right = 362.0
+margin_bottom = 280.0
+text = "Add fake stone obstalce on export"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LStonehack" type="Label" parent="Options"]
+margin_left = 56.0
+margin_top = 280.0
+margin_right = 765.0
+margin_bottom = 328.0
+text = "This is similar to the stone hack mode from older segment creation tools. Instead of baking stone out to a 
+mesh file, an extra obstacle is instead exported with each box that is given parameters to act just like stone.
+This is not recommended for newer segments as Mesh exporting is a planned feature."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bake" type="WindowDialog" parent="."]
+margin_right = 500.0
+margin_bottom = 250.0
+popup_exclusive = true
+window_title = "Asset Bake"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bake"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 312.0
+margin_bottom = 38.0
+text = "Please select the action that the bake will do on the currently open file:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="Bake"]
+margin_left = 17.0
+margin_top = 58.0
+margin_right = 477.0
+margin_bottom = 94.0
+disabled = true
+text = "Bake Mesh File"
+items = [ "Bake Mesh File", null, false, 0, null, "Run External Program or Script", null, false, 3, null ]
+selected = 0
+
+[node name="Label2" type="Label" parent="Bake"]
+margin_left = 16.0
+margin_top = 115.0
+margin_right = 312.0
+margin_bottom = 129.0
+text = "A description of what the selected item does goes here."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Bake"]
+margin_left = 351.0
+margin_top = 196.0
+margin_right = 477.0
+margin_bottom = 228.0
+disabled = true
+text = "Bake Assets"
+
+[node name="CheckBox" type="CheckBox" parent="Bake"]
+margin_left = 16.0
+margin_top = 200.0
+margin_right = 282.0
+margin_bottom = 224.0
+disabled = true
+text = "Do this automatically for this session"

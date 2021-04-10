@@ -94,6 +94,9 @@ func handle_file_menu(id):
 	if (id == 1):
 		gui.show_file_select()
 	
+	if (id == 3):
+		gui.show_bake()
+	
 	if (id == 5):
 		gui.set_output_and_show(self.segment_to_xml())
 
@@ -251,12 +254,19 @@ func load_segment(path : String):
 			if (globals.options.enable_carambola_extensions):
 				var n = file.get_named_attribute_value_safe("_Name")
 				if (n): ent.editor_name = n
+				
+				n = (file.get_named_attribute_value_safe("_Stone") == "0")
+				if (n): ent.stone = false
 			
 			self.add_child(ent)
 			objects.append(ent)
 		
 		# Load an obstacle
 		elif (objectType == "obstacle"):
+			# skip stonehack obstacles
+			if (file.get_named_attribute_value_safe("IMPORT_IGNORE") == "STONEHACK_IGNORE"):
+				continue
+			
 			var ent = EObstacle.new()
 			
 			var pos = file.get_named_attribute_value_safe("pos").split_floats(" ")

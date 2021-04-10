@@ -3,7 +3,7 @@ extends EBase
 class_name EBox
 
 # Sub-components
-const _Properties = ["editor_name", "position", "size", "template", "reflection", "visible", "tile", "colour"]
+const _Properties = ["editor_name", "position", "size", "template", "reflection", "stone", "visible", "tile", "colour"]
 var box_mesh_instance : MeshInstance = null
 
 # Elements
@@ -12,6 +12,7 @@ var size : Vector3 = Vector3(0.5, 0.5, 0.5)
 var position : Vector3 = Vector3()
 var template : String = ""
 var reflection : bool = false
+var stone : bool = true
 var visible : bool = true
 var tile : int = 0
 var colour : Color = Color(0.5, 0.5, 0.5, 1.0)
@@ -19,7 +20,7 @@ var colour : Color = Color(0.5, 0.5, 0.5, 1.0)
 func _ready():
 	globals.selection = self
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (needs_update):
 		self.updateThis()
 		needs_update = false
@@ -78,6 +79,15 @@ func asXMLElement():
 		s += "color=\"" + cstr + "\" "
 	if (globals.options.enable_carambola_extensions):
 		s += "_Name=\"" + editor_name + "\" "
+		if (!stone):
+			s += "_Stone=\"0\" "
 	s += "/>"
+	
+	# Obstacle for the stonehack
+	if (globals.options.enable_stonehack and stone):
+		s += "\n\t\t<obstacle type=\"stone\" pos=\"" + str(position.x) + " " + str(position.y) + " " + str(position.z) + "\" param9=\"sizeX=" + str(size.x) + "\" param10=\"sizeY=" + str(size.y) + "\" param11=\"sizeZ=" + str(size.z) + "\" "
+		if (visible):
+			s += "param8=\"color=" + str(colour.r) + " " + str(colour.g) + " " + str(colour.b) + "\""
+		s += " IMPORT_IGNORE=\"STONEHACK_IGNORE\"/>"
 	
 	return s

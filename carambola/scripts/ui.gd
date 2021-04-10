@@ -123,6 +123,9 @@ func show_options():
 	$Options.popup_centered()
 	$Options.on_show()
 
+func show_bake():
+	$Bake.popup_centered()
+
 func set_output_and_show(output : String):
 	$XML/Output.text = output
 	$XML.popup_centered()
