@@ -4,6 +4,6 @@
 
 Carambola is a level editor for the mobile game Smash Hit.
 
-## Docs
+## User Docs
 
 All of the docs are on the website, in the website folder.
