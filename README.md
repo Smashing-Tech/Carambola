@@ -1,6 +1,6 @@
 # Carambola
 
-***Notice**: Carambola is no longer being developed by it's original developer.*
+***Notice**: Carambola is no longer being developed by it's original developer; however, PRs will still be accepted.*
 
 Carambola is a level editor for the mobile game Smash Hit.
 
