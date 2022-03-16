@@ -1,13 +1,14 @@
 /* Carambola Website CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&family=Ubuntu:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Remove default padding */
 * { margin: 0; padding: 0; }
 
 h1, h2, h3, h4, p, li {
-	font-family: "Ubuntu", sans-serif;
-	font-weight: 300;
+	color: #fff;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 100;
 	margin-bottom: 0.5em;
 }
 
@@ -20,17 +21,17 @@ ul { margin-left: 1em; }
 .cb-quote { font-size: 20pt; line-height: 1.5; }
 
 a {
-	color: #45a8bc;
-	text-decoration: none;
+	color: #fff;
+	text-decoration-style: dashed;
 	border-radius: 0.2em;
 }
 
 a:hover {
-	background: #45a8bc3a;
+	background: #ffffff3a;
 }
 
 ::selection {
-	background: #45a8bc;
+	background: #1b56ca;
 	color: #fff;
 }
 
@@ -43,7 +44,7 @@ body {
 
 .main-section {
 	border: none;
-	background: #ffffffe8;
+	background: #000000e0;
 	max-width: 60em;
 	margin: auto;
 	margin-top: 0;
@@ -52,7 +53,7 @@ body {
 }
 
 .navbar-section {
-	background: #0000006f;
+	background: #000000;
 	border: none;
 	border-radius: 0.325em;
 	color: #fff;
@@ -79,12 +80,16 @@ body {
 }
 
 .bottom-section {
-	background: #0009;
+	background: #000A;
+	border-radius: 0.25em;
 	text-align: center;
 	text-shadow: 0em 0em 0.3em #000;
-	padding: 2em;
+	padding: 1em;
 	color: #fff;
+	margin: auto;
 	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	max-width: 60em;
 }
 
 .bottom-section p, .notice-section p {
