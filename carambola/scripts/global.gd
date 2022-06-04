@@ -1,6 +1,6 @@
 extends Node
 
-const app_version = ["2021", "04", "10", "Alpha"]
+const app_version = ["2022", "05", "15", "Alpha"]
 var textures = {
 	tiles = [],
 	decals = [],
@@ -16,6 +16,10 @@ func _ready():
 	for i in range(0, 68):
 		textures.decals.append(load("res://assets/decals/" + str(i - 4) + ".png"))
 		textures.decals[i].set_flags(Texture.FLAGS_DEFAULT)
+	
+	textures.powerups["ballfrenzy"] = textures.decals[1]
+	textures.powerups["nitroballs"] = textures.decals[3]
+	textures.powerups["slowmotion"] = textures.decals[4]
 	
 	# Load default templates
 	self.load_templates("res://assets/default/templates.xml")

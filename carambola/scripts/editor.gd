@@ -33,14 +33,6 @@ func _physics_process(delta):
 	# Reset selectionChanged
 	globals.selectionChanged = false
 	
-	# Remove any invalid objects from the list
-	# NOTE: Too agressive, also caused slow preformance in some cases
-#	var new_list = []
-#	for o in objects:
-#		if (!is_instance_valid(o)):
-#			new_list.append(o)
-#	objects = new_list
-	
 	# Update keyboard bindings
 	self.camera_update(delta)
 
@@ -182,9 +174,8 @@ func backup_segment():
 # Loads a segment into the editor
 func load_segment(path : String):
 	# Serialise the current segment then wipe it
-	if (globals.options["save_backup_scene"]):
-		globals.selection = null
-		self.backup_segment()
+	globals.selection = null
+	self.backup_segment()
 	self.close_segment()
 	
 	# Start loading the new segment
@@ -196,6 +187,7 @@ func load_segment(path : String):
 	file.open(path)
 	
 	var loaded_segment_data : bool = false
+	
 	while (!file.read()):
 		var objectType = file.get_node_name()
 		
@@ -331,14 +323,29 @@ func load_segment(path : String):
 			$Segment.add_child(ent)
 			objects.append(ent)
 		
+		elif (objectType == "powerup"):
+			var ent = EPowerUp.new()
+			
+			var pos = file.get_named_attribute_value_safe("pos").split_floats(" ")
+			if (len(pos) == 3):
+				ent.position = Vector3(pos[0], pos[1], pos[2])
+			else:
+				ent.position = Vector3(0.5, 0.5, 0.5)
+			
+			var type = file.get_named_attribute_value_safe("type")
+			ent.type = type
+			
+			$Segment.add_child(ent)
+			objects.append(ent)
+		
 		else:
 			not_loaded_count += 1
 			print("Note: Did not load object of type " + objectType)
 	
 	if (not_loaded_count > 0):
-		print("Did not load " + str(not_loaded_count) + " incompatible objects.")
+		print("Done: Did not load " + str(not_loaded_count) + " incompatible objects.")
 	else:
-		print("Loaded segment at \'" + path + "\' successfully.")
+		print("Done: Loaded segment at \'" + path + "\' fully.")
 
 ## ####################
 ## Actually doing stuff

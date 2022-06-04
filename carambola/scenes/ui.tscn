@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/file_download.svg" type="Texture" id=3]
@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/icons/layers.svg" type="Texture" id=9]
 [ext_resource path="res://assets/icons/file_upload.svg" type="Texture" id=10]
 [ext_resource path="res://assets/icons/code.svg" type="Texture" id=11]
-[ext_resource path="res://assets/icons/cake.svg" type="Texture" id=12]
 [ext_resource path="res://assets/icons/build.svg" type="Texture" id=13]
 [ext_resource path="res://assets/icons/decal.svg" type="Texture" id=14]
 [ext_resource path="res://assets/icons/texture.svg" type="Texture" id=15]
@@ -37,7 +36,7 @@ __meta__ = {
 margin_right = 35.0
 margin_bottom = 20.0
 text = "File"
-items = [ "Close", ExtResource( 19 ), 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 8, 0, null, "", true, "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Bake Stone", ExtResource( 12 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Source", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false ]
+items = [ "Close", ExtResource( 19 ), 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 8, 0, null, "", true, "Load", ExtResource( 10 ), 0, false, false, 0, 0, null, "", false, "Save as", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Source", ExtResource( 11 ), 0, false, false, 5, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,7 +48,7 @@ margin_right = 70.0
 margin_bottom = 20.0
 focus_mode = 2
 text = "Edit"
-items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 15 ), 0, false, false, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Add prefab", ExtResource( 9 ), 0, false, true, 5, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
+items = [ "Create:", null, 0, false, true, 7, 0, null, "", false, "Box", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Obstacle", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Decal", ExtResource( 15 ), 0, false, false, 6, 0, null, "", false, "Powerup", ExtResource( 14 ), 0, false, true, 8, 0, null, "", false, "Water", ExtResource( 14 ), 0, false, true, 9, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Delete", ExtResource( 6 ), 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Options", ExtResource( 13 ), 0, false, false, 11, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -196,8 +195,8 @@ margin_right = 1012.0
 margin_bottom = 575.0
 access = 2
 show_hidden_files = true
-current_dir = "/home/user/Development/Misc/carambola/carambola"
-current_path = "/home/user/Development/Misc/carambola/carambola/"
+current_dir = "/home/user/Development/mediocre/Carambola-GH/carambola"
+current_path = "/home/user/Development/mediocre/Carambola-GH/carambola/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -211,8 +210,8 @@ window_title = "Open a File"
 mode = 0
 access = 2
 show_hidden_files = true
-current_dir = "/home/user/Development/Misc/carambola/carambola"
-current_path = "/home/user/Development/Misc/carambola/carambola/"
+current_dir = "/home/user/Development/mediocre/Carambola-GH/carambola"
+current_path = "/home/user/Development/mediocre/Carambola-GH/carambola/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -227,8 +226,8 @@ mode_overrides_title = false
 mode = 0
 access = 2
 show_hidden_files = true
-current_dir = "/home/user/Development/Misc/carambola/carambola"
-current_path = "/home/user/Development/Misc/carambola/carambola/"
+current_dir = "/home/user/Development/mediocre/Carambola-GH/carambola"
+current_path = "/home/user/Development/mediocre/Carambola-GH/carambola/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -278,7 +277,6 @@ margin_bottom = 29.0
 text = "This is the XML output of this level. Please copy it into a text file and then save it."
 
 [node name="Options" type="WindowDialog" parent="."]
-visible = true
 margin_right = 800.0
 margin_bottom = 500.0
 popup_exclusive = true
@@ -314,29 +312,29 @@ margin_bottom = 80.0
 text = "Use carambola segment extensions"
 
 [node name="LCarambolaExt" type="Label" parent="Options"]
-margin_left = 56.0
-margin_top = 80.0
-margin_right = 461.0
-margin_bottom = 94.0
+margin_left = 24.0
+margin_top = 88.0
+margin_right = 733.0
+margin_bottom = 136.0
 text = "This will enable some extra extensions to the segment format. While it is still compatible with Smash Hit (that
 is, they can be loaded fine) they add some extra bloat to the segment files. An example of what this changes is
 that the \"Editor Name\" property is preserved for objects."
 
 [node name="Backup" type="CheckBox" parent="Options"]
 margin_left = 16.0
-margin_top = 144.0
+margin_top = 152.0
 margin_right = 362.0
-margin_bottom = 168.0
+margin_bottom = 176.0
 text = "Save backups to user data folder"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LBackup" type="Label" parent="Options"]
-margin_left = 56.0
-margin_top = 168.0
-margin_right = 765.0
-margin_bottom = 216.0
+margin_left = 24.0
+margin_top = 184.0
+margin_right = 733.0
+margin_bottom = 232.0
 text = "This will save a backup of segments during some events that may need to be undone later."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -344,19 +342,19 @@ __meta__ = {
 
 [node name="Output" type="CheckBox" parent="Options"]
 margin_left = 16.0
-margin_top = 200.0
+margin_top = 216.0
 margin_right = 362.0
-margin_bottom = 224.0
+margin_bottom = 240.0
 text = "Show XML output in status bar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LOutput" type="Label" parent="Options"]
-margin_left = 56.0
-margin_top = 224.0
-margin_right = 765.0
-margin_bottom = 272.0
+margin_left = 24.0
+margin_top = 248.0
+margin_right = 733.0
+margin_bottom = 296.0
 text = "When a valid object is selected, the XML output of that selected object will be rendered out to the status bar."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -364,20 +362,20 @@ __meta__ = {
 
 [node name="Stonehack" type="CheckBox" parent="Options"]
 margin_left = 16.0
-margin_top = 256.0
+margin_top = 276.0
 margin_right = 362.0
-margin_bottom = 280.0
+margin_bottom = 300.0
 text = "Add fake stone obstalce on export"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LStonehack" type="Label" parent="Options"]
-margin_left = 56.0
-margin_top = 280.0
-margin_right = 765.0
-margin_bottom = 328.0
-text = "This is similar to the stone hack mode from older segment creation tools. Instead of baking stone out to a 
+margin_left = 24.0
+margin_top = 308.0
+margin_right = 733.0
+margin_bottom = 356.0
+text = "This is similar to the stone hack mode from Blender tools. Instead of baking stone out to a 
 mesh file, an extra obstacle is instead exported with each box that is given parameters to act just like stone.
 This is not recommended for newer segments as Mesh exporting is a planned feature."
 __meta__ = {
